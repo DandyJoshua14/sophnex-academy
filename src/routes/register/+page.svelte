@@ -1,16 +1,17 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { goto } from '$app/navigation';
 
-	export let form: any;
+	let { form } = $props<{ form: any }>();
 
-	let formData = {
+	let formData = $state({
 		name: '',
 		email: '',
 		phone: '',
 		password: '',
 		confirmPassword: '',
 		course: ''
-	};
+	});
 
 	const courses = [
 		{
@@ -26,6 +27,18 @@
 			description: 'Master the basics of JavaScript for web development'
 		}
 	];
+
+	// Handle form submission with redirect
+	function handleSubmit(event: any) {
+		const { update } = event.detail;
+
+		update(({ result }: any) => {
+			if (result?.type === 'success' && result.data?.redirectUrl) {
+				// Redirect to Paystack payment page
+				window.location.href = result.data.redirectUrl;
+			}
+		});
+	}
 </script>
 
 <svelte:head>
@@ -51,7 +64,7 @@
 				</div>
 			{/if}
 
-			<form method="POST" use:enhance class="space-y-6">
+			<form method="POST" use:enhance={handleSubmit} class="space-y-6">
 				<div>
 					<label for="name" class="mb-2 block text-sm font-medium text-gray-700">
 						Full Name *
@@ -163,7 +176,7 @@
 					type="submit"
 					class="w-full rounded-md bg-blue-600 px-4 py-3 text-white transition-colors duration-200 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
 				>
-					Register Now
+					Register & Pay Now
 				</button>
 			</form>
 

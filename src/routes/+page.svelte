@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	let isMenuOpen = false;
+	let isMenuOpen = $state(false);
 
 	const courses = [
 		{
