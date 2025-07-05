@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import type { ActionData } from './$types';
 
-	export let form: ActionData;
+	export let form: any;
 
 	let formData = {
 		name: '',
 		email: '',
 		phone: '',
+		password: '',
+		confirmPassword: '',
 		course: ''
 	};
 
@@ -93,6 +94,37 @@
 						required
 						class="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none"
 						placeholder="Enter your phone number"
+					/>
+				</div>
+
+				<div>
+					<label for="password" class="mb-2 block text-sm font-medium text-gray-700">
+						Password *
+					</label>
+					<input
+						type="password"
+						id="password"
+						name="password"
+						bind:value={formData.password}
+						required
+						minlength="8"
+						class="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+						placeholder="Enter your password (min 8 characters)"
+					/>
+				</div>
+
+				<div>
+					<label for="confirmPassword" class="mb-2 block text-sm font-medium text-gray-700">
+						Confirm Password *
+					</label>
+					<input
+						type="password"
+						id="confirmPassword"
+						name="confirmPassword"
+						bind:value={formData.confirmPassword}
+						required
+						class="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+						placeholder="Confirm your password"
 					/>
 				</div>
 
