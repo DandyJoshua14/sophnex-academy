@@ -1,17 +1,25 @@
-import { redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
-import { connectToDatabase } from '$lib/database';
+import { connectToDatabase, createUser, getUserByEmail } from '$lib/database';
 import { initializePayment } from '$lib/paystack';
 
 export const actions: Actions = {
     default: async ({ request }) => {
         const formData = await request.formData();
         const email = formData.get('email') as string;
+        const course = formData.get('course') as string;
 
-        if (!email) {
+        if (!email || !course) {
             return {
                 success: false,
-                message: 'Email is required'
+                message: 'Email and course selection are required'
+            };
+        }
+
+        // Validate course selection
+        if (course !== 'python' && course !== 'javascript') {
+            return {
+                success: false,
+                message: 'Please select a valid course'
             };
         }
 
@@ -19,16 +27,62 @@ export const actions: Actions = {
             const { db } = await connectToDatabase();
             const usersCollection = db.collection('users');
 
-            // Find user with pending payment
-            const user = await usersCollection.findOne({
-                email: email.toLowerCase(),
-                status: 'pending'
-            });
+            // Check if user already exists
+            let user = await getUserByEmail(email);
+
+            if (user) {
+                // User exists, check if they have a pending payment
+                if (user.status === 'pending') {
+                    // Update existing user's course if different
+                    if (user.course !== course) {
+                        await usersCollection.updateOne(
+                            { _id: user._id },
+                            {
+                                $set: {
+                                    course: course as 'python' | 'javascript',
+                                    updatedAt: new Date()
+                                }
+                            }
+                        );
+                        user.course = course as 'python' | 'javascript';
+                    }
+                } else if (user.status === 'verified') {
+                    return {
+                        success: false,
+                        message: 'Your account is already verified. You can log in to access your course.'
+                    };
+                } else {
+                    // User exists but status is cancelled or other, update to pending
+                    await usersCollection.updateOne(
+                        { _id: user._id },
+                        {
+                            $set: {
+                                course: course as 'python' | 'javascript',
+                                status: 'pending',
+                                paymentStatus: 'pending',
+                                updatedAt: new Date()
+                            }
+                        }
+                    );
+                    user.status = 'pending';
+                    user.course = course as 'python' | 'javascript';
+                }
+            } else {
+                // Create new user with minimal information
+                const userId = await createUser({
+                    name: email.split('@')[0], // Use email prefix as name
+                    email: email.toLowerCase(),
+                    phone: '', // Will be updated later if needed
+                    password: '', // Will be set later if needed
+                    course: course as 'python' | 'javascript'
+                });
+                user = await getUserByEmail(email);
+            }
 
             if (!user) {
                 return {
                     success: false,
-                    message: 'No pending payment found for this email. Please check your email or register for a course.'
+                    message: 'Failed to create or update user account. Please try again.'
                 };
             }
 
@@ -50,8 +104,12 @@ export const actions: Actions = {
                     }
                 );
 
-                // Redirect to Paystack payment page
-                throw redirect(302, result.data.authorization_url);
+                // Return the redirect URL instead of throwing redirect
+                return {
+                    success: true,
+                    message: 'Payment initialized successfully. Redirecting to payment gateway...',
+                    redirectUrl: result.data.authorization_url
+                };
             } else {
                 return {
                     success: false,
@@ -60,10 +118,6 @@ export const actions: Actions = {
             }
         } catch (error) {
             console.error('Payment resume error:', error);
-
-            if (error instanceof Response) {
-                throw error; // Re-throw redirect
-            }
 
             return {
                 success: false,
