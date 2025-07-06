@@ -93,7 +93,7 @@ export const actions: Actions = {
             const result = await initializePayment(user.email, amount, callbackUrl);
 
             if (result.status && result.data) {
-                // Update user with new payment reference
+                // Update user with new payment reference immediately after initialization
                 await usersCollection.updateOne(
                     { _id: user._id },
                     {
