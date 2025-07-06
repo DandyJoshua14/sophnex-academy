@@ -49,7 +49,9 @@ export const actions: Actions = {
             if (user.status !== 'verified') {
                 return {
                     success: false,
-                    message: 'Your account is not yet verified. Please complete your payment to access the course.'
+                    message: 'Your account is not yet verified. Please complete your payment to access the course.',
+                    userStatus: user.status,
+                    userEmail: user.email
                 };
             }
 
