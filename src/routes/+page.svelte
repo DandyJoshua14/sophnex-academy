@@ -46,33 +46,41 @@
 </svelte:head>
 
 <!-- Navigation -->
-<nav class="fixed top-0 z-50 w-full bg-white shadow-lg">
+<nav
+	class="fixed top-0 z-50 w-full border-b border-[#3469B2]/20 bg-[#10112A]/90 shadow-lg backdrop-blur-md"
+>
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="flex h-16 justify-between">
 			<div class="flex items-center">
 				<div class="flex-shrink-0">
-					<h1 class="text-xl font-bold text-blue-600">SophNex Academy</h1>
+					<h1 class="text-xl font-bold text-[#3469B2]">SophNex Academy</h1>
 				</div>
 			</div>
 
 			<div class="hidden items-center space-x-8 md:flex">
 				<a
 					href="#home"
-					class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Home</a
+					class="rounded-md px-3 py-2 text-sm font-medium text-[#FFFFFF] transition-colors hover:text-[#00C2A8]"
+					>Home</a
 				>
 				<a
 					href="#courses"
-					class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+					class="rounded-md px-3 py-2 text-sm font-medium text-[#FFFFFF] transition-colors hover:text-[#00C2A8]"
 					>Courses</a
 				>
 				<a
 					href="#about"
-					class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+					class="rounded-md px-3 py-2 text-sm font-medium text-[#FFFFFF] transition-colors hover:text-[#00C2A8]"
 					>About</a
 				>
 				<a
+					href="/login"
+					class="rounded-md px-3 py-2 text-sm font-medium text-[#FFFFFF] transition-colors hover:text-[#00C2A8]"
+					>Login</a
+				>
+				<a
 					href="/register"
-					class="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+					class="rounded-md bg-gradient-to-r from-[#3469B2] to-[#00C2A8] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow-lg backdrop-blur-sm transition-all hover:from-[#00C2A8] hover:to-[#3469B2] hover:shadow-xl"
 					>Register Now</a
 				>
 			</div>
@@ -81,7 +89,7 @@
 			<div class="flex items-center md:hidden">
 				<button
 					on:click={toggleMenu}
-					class="text-gray-700 hover:text-blue-600 focus:text-blue-600 focus:outline-none"
+					class="text-[#FFFFFF] transition-colors hover:text-[#00C2A8] focus:text-[#00C2A8] focus:outline-none"
 				>
 					<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path
@@ -99,25 +107,32 @@
 	<!-- Mobile menu -->
 	{#if isMenuOpen}
 		<div class="md:hidden">
-			<div class="space-y-1 border-t bg-white px-2 pt-2 pb-3 sm:px-3">
+			<div
+				class="space-y-1 border-t border-[#3469B2]/30 bg-[#10112A]/95 px-2 pt-2 pb-3 backdrop-blur-md sm:px-3"
+			>
 				<a
 					href="#home"
-					class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600"
+					class="block rounded-md px-3 py-2 text-base font-medium text-[#FFFFFF] transition-colors hover:text-[#00C2A8]"
 					>Home</a
 				>
 				<a
 					href="#courses"
-					class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600"
+					class="block rounded-md px-3 py-2 text-base font-medium text-[#FFFFFF] transition-colors hover:text-[#00C2A8]"
 					>Courses</a
 				>
 				<a
 					href="#about"
-					class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600"
+					class="block rounded-md px-3 py-2 text-base font-medium text-[#FFFFFF] transition-colors hover:text-[#00C2A8]"
 					>About</a
 				>
 				<a
+					href="/login"
+					class="block rounded-md px-3 py-2 text-base font-medium text-[#FFFFFF] transition-colors hover:text-[#00C2A8]"
+					>Login</a
+				>
+				<a
 					href="/register"
-					class="block rounded-md bg-blue-600 px-3 py-2 text-base font-medium text-white hover:bg-blue-700"
+					class="block rounded-md bg-gradient-to-r from-[#3469B2] to-[#00C2A8] px-3 py-2 text-base font-medium text-[#FFFFFF] backdrop-blur-sm transition-all hover:from-[#00C2A8] hover:to-[#3469B2]"
 					>Register Now</a
 				>
 			</div>
@@ -126,27 +141,29 @@
 </nav>
 
 <!-- Hero Section -->
-<section id="home" class="bg-gradient-to-br from-blue-50 to-indigo-100 pt-16">
+<section id="home" class="bg-gradient-to-br from-[#FFFFFF] via-[#F8F9FF] to-[#E8ECFF] pt-16">
 	<div class="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
 		<div class="text-center">
-			<h1 class="mb-6 text-4xl font-bold text-gray-900 md:text-6xl">
+			<h1 class="mb-6 text-4xl font-bold text-[#10112A] md:text-6xl">
 				Learn to Code with
-				<span class="text-blue-600">SophNex Academy</span>
+				<span class="bg-gradient-to-r from-[#3469B2] to-[#00C2A8] bg-clip-text text-transparent"
+					>SophNex Academy</span
+				>
 			</h1>
-			<p class="mx-auto mb-8 max-w-3xl text-xl text-gray-600">
+			<p class="mx-auto mb-8 max-w-3xl text-xl text-[#5254A3]">
 				Start your journey into the world of programming with our comprehensive courses. Learn from
 				industry experts and build real-world projects.
 			</p>
 			<div class="flex flex-col justify-center gap-4 sm:flex-row">
 				<a
 					href="/register"
-					class="rounded-lg bg-blue-600 px-8 py-3 text-lg font-medium text-white transition-colors hover:bg-blue-700"
+					class="transform rounded-lg bg-gradient-to-r from-[#3469B2] to-[#00C2A8] px-8 py-3 text-lg font-medium text-[#FFFFFF] shadow-lg transition-all hover:scale-105 hover:from-[#00C2A8] hover:to-[#3469B2] hover:shadow-xl"
 				>
 					Get Started Today
 				</a>
 				<a
 					href="#courses"
-					class="rounded-lg border-2 border-blue-600 px-8 py-3 text-lg font-medium text-blue-600 transition-colors hover:bg-blue-600 hover:text-white"
+					class="rounded-lg border-2 border-[#3469B2] px-8 py-3 text-lg font-medium text-[#3469B2] transition-all hover:bg-[#3469B2] hover:text-[#FFFFFF] hover:shadow-lg"
 				>
 					View Courses
 				</a>
@@ -156,11 +173,11 @@
 </section>
 
 <!-- Courses Section -->
-<section id="courses" class="bg-white py-16">
+<section id="courses" class="bg-[#FFFFFF] py-16">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="mb-12 text-center">
-			<h2 class="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">Pre-Launch Courses</h2>
-			<p class="text-xl text-gray-600">
+			<h2 class="mb-4 text-3xl font-bold text-[#10112A] md:text-4xl">Pre-Launch Courses</h2>
+			<p class="text-xl text-[#5254A3]">
 				Join our exclusive pre-launch program and be among the first to experience our innovative
 				learning approach
 			</p>
@@ -169,22 +186,26 @@
 		<div class="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
 			{#each courses as course}
 				<div
-					class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg transition-shadow hover:shadow-xl"
+					class="transform overflow-hidden rounded-lg border-2 border-[#3469B2] bg-[#FFFFFF] shadow-lg transition-all hover:scale-105 hover:border-[#00C2A8] hover:shadow-xl"
 				>
 					<div class="p-8">
 						<div class="mb-6 text-center">
-							<h3 class="mb-2 text-2xl font-bold text-gray-900">{course.name}</h3>
-							<p class="mb-4 text-gray-600">{course.description}</p>
-							<div class="mb-6 text-3xl font-bold text-blue-600">{course.price}</div>
+							<h3 class="mb-2 text-2xl font-bold text-[#3469B2]">{course.name}</h3>
+							<p class="mb-4 text-[#5254A3]">{course.description}</p>
+							<div
+								class="mb-6 bg-gradient-to-r from-[#3469B2] to-[#00C2A8] bg-clip-text text-3xl font-bold text-transparent"
+							>
+								{course.price}
+							</div>
 						</div>
 
 						<div class="mb-6">
-							<h4 class="mb-3 font-semibold text-gray-900">What you'll learn:</h4>
+							<h4 class="mb-3 font-semibold text-[#10112A]">What you'll learn:</h4>
 							<ul class="space-y-2">
 								{#each course.features as feature}
-									<li class="flex items-center text-gray-600">
+									<li class="flex items-center text-[#5254A3]">
 										<svg
-											class="mr-3 h-5 w-5 text-green-500"
+											class="mr-3 h-5 w-5 text-[#00C2A8]"
 											fill="currentColor"
 											viewBox="0 0 20 20"
 										>
@@ -202,7 +223,7 @@
 
 						<a
 							href="/register"
-							class="block w-full rounded-md bg-blue-600 px-4 py-3 text-center font-medium text-white transition-colors hover:bg-blue-700"
+							class="block w-full rounded-md bg-gradient-to-r from-[#3469B2] to-[#00C2A8] px-4 py-3 text-center font-medium text-[#FFFFFF] shadow-lg transition-all hover:from-[#00C2A8] hover:to-[#3469B2] hover:shadow-xl"
 						>
 							Enroll Now
 						</a>
@@ -214,39 +235,39 @@
 </section>
 
 <!-- About Section -->
-<section id="about" class="bg-gray-50 py-16">
+<section id="about" class="bg-gradient-to-br from-[#3469B2] to-[#5254A3] py-16">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="grid items-center gap-12 md:grid-cols-2">
 			<div>
-				<h2 class="mb-6 text-3xl font-bold text-gray-900 md:text-4xl">About SophNex Academy</h2>
-				<p class="mb-6 text-lg text-gray-600">
+				<h2 class="mb-6 text-3xl font-bold text-[#FFFFFF] md:text-4xl">About SophNex Academy</h2>
+				<p class="mb-6 text-lg text-[#FFFFFF]">
 					SophNex Academy is dedicated to making programming education accessible, practical, and
 					engaging. Our mission is to empower individuals with the skills they need to succeed in
 					the digital age.
 				</p>
-				<p class="mb-8 text-lg text-gray-600">
+				<p class="mb-8 text-lg text-[#FFFFFF]">
 					We believe in learning by doing. Our courses combine theoretical knowledge with hands-on
 					projects that you can add to your portfolio and showcase to potential employers.
 				</p>
 
 				<div class="grid grid-cols-2 gap-6">
 					<div class="text-center">
-						<div class="mb-2 text-3xl font-bold text-blue-600">2</div>
-						<div class="text-gray-600">Pre-Launch Courses Available</div>
+						<div class="mb-2 text-3xl font-bold text-[#00C2A8]">2</div>
+						<div class="text-[#FFFFFF]">Courses Available</div>
 					</div>
 					<div class="text-center">
-						<div class="mb-2 text-3xl font-bold text-blue-600">5K</div>
-						<div class="text-gray-600">NGN per Course</div>
+						<div class="mb-2 text-3xl font-bold text-[#00C2A8]">5K</div>
+						<div class="text-[#FFFFFF]">NGN per Course</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="rounded-lg bg-white p-8 shadow-lg">
-				<h3 class="mb-6 text-2xl font-bold text-gray-900">Why Choose Us?</h3>
+			<div class="rounded-lg bg-[#FFFFFF] p-8 shadow-lg">
+				<h3 class="mb-6 text-2xl font-bold text-[#10112A]">Why Choose Us?</h3>
 				<div class="space-y-4">
 					<div class="flex items-start">
 						<div class="flex-shrink-0">
-							<svg class="h-6 w-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+							<svg class="h-6 w-6 text-[#00C2A8]" fill="currentColor" viewBox="0 0 20 20">
 								<path
 									fill-rule="evenodd"
 									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -255,8 +276,8 @@
 							</svg>
 						</div>
 						<div class="ml-3">
-							<h4 class="text-lg font-medium text-gray-900">Expert Instructors</h4>
-							<p class="text-gray-600">
+							<h4 class="text-lg font-medium text-[#10112A]">Expert Instructors</h4>
+							<p class="text-[#5254A3]">
 								Learn from industry professionals with years of experience
 							</p>
 						</div>
@@ -264,7 +285,7 @@
 
 					<div class="flex items-start">
 						<div class="flex-shrink-0">
-							<svg class="h-6 w-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+							<svg class="h-6 w-6 text-[#00C2A8]" fill="currentColor" viewBox="0 0 20 20">
 								<path
 									fill-rule="evenodd"
 									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -273,14 +294,14 @@
 							</svg>
 						</div>
 						<div class="ml-3">
-							<h4 class="text-lg font-medium text-gray-900">Practical Projects</h4>
-							<p class="text-gray-600">Build real-world projects to enhance your portfolio</p>
+							<h4 class="text-lg font-medium text-[#10112A]">Practical Projects</h4>
+							<p class="text-[#5254A3]">Build real-world projects to enhance your portfolio</p>
 						</div>
 					</div>
 
 					<div class="flex items-start">
 						<div class="flex-shrink-0">
-							<svg class="h-6 w-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+							<svg class="h-6 w-6 text-[#00C2A8]" fill="currentColor" viewBox="0 0 20 20">
 								<path
 									fill-rule="evenodd"
 									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -289,8 +310,8 @@
 							</svg>
 						</div>
 						<div class="ml-3">
-							<h4 class="text-lg font-medium text-gray-900">Flexible Learning</h4>
-							<p class="text-gray-600">
+							<h4 class="text-lg font-medium text-[#10112A]">Flexible Learning</h4>
+							<p class="text-[#5254A3]">
 								Learn at your own pace with lifetime access to course materials
 							</p>
 						</div>
@@ -302,17 +323,17 @@
 </section>
 
 <!-- CTA Section -->
-<section class="bg-blue-600 py-16">
+<section class="bg-gradient-to-r from-[#3469B2] to-[#00C2A8] py-16">
 	<div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-		<h2 class="mb-4 text-3xl font-bold text-white md:text-4xl">
+		<h2 class="mb-4 text-3xl font-bold text-[#FFFFFF] md:text-4xl">
 			Ready to Start Your Coding Journey?
 		</h2>
-		<p class="mb-8 text-xl text-blue-100">
+		<p class="mb-8 text-xl text-[#FFFFFF]">
 			Join our pre-launch program and get exclusive access to our courses at a special price.
 		</p>
 		<a
 			href="/register"
-			class="rounded-lg bg-white px-8 py-3 text-lg font-medium text-blue-600 transition-colors hover:bg-gray-100"
+			class="transform rounded-lg bg-[#FFFFFF] px-8 py-3 text-lg font-medium text-[#10112A] shadow-lg transition-all hover:scale-105 hover:bg-[#F8F9FF] hover:shadow-xl"
 		>
 			Register Now - Only 5,000 NGN
 		</a>
@@ -320,18 +341,20 @@
 </section>
 
 <!-- Footer -->
-<footer class="bg-gray-900 py-12 text-white">
+<footer class="bg-[#10112A] py-12 text-[#FFFFFF]">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="text-center">
-			<h3 class="mb-4 text-2xl font-bold">SophNex Academy</h3>
-			<p class="mb-6 text-gray-400">Empowering the next generation of developers</p>
+			<h3 class="mb-4 text-2xl font-bold text-[#3469B2]">SophNex Academy</h3>
+			<p class="mb-6 text-[#5254A3]">Empowering the next generation of developers</p>
 			<div class="flex justify-center space-x-6">
-				<a href="/register" class="text-gray-400 transition-colors hover:text-white">Register</a>
-				<a href="#courses" class="text-gray-400 transition-colors hover:text-white">Courses</a>
-				<a href="#about" class="text-gray-400 transition-colors hover:text-white">About</a>
+				<a href="/register" class="text-[#5254A3] transition-colors hover:text-[#00C2A8]"
+					>Register</a
+				>
+				<a href="#courses" class="text-[#5254A3] transition-colors hover:text-[#00C2A8]">Courses</a>
+				<a href="#about" class="text-[#5254A3] transition-colors hover:text-[#00C2A8]">About</a>
 			</div>
-			<div class="mt-8 border-t border-gray-800 pt-8">
-				<p class="text-gray-400">&copy; 2024 SophNex Academy. All rights reserved.</p>
+			<div class="mt-8 border-t border-[#3469B2] pt-8">
+				<p class="text-[#5254A3]">&copy; 2024 SophNex Academy. All rights reserved.</p>
 			</div>
 		</div>
 	</div>
