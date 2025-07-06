@@ -1,12 +1,13 @@
 import { MongoClient, ObjectId } from 'mongodb';
 import bcrypt from 'bcryptjs';
+import { env } from '$env/dynamic/private';
 
 // Database connection
 let client: MongoClient;
 let db: any;
 
 // Get MongoDB URI from environment or use default
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/sophnex_academy';
+const MONGODB_URI = env.MONGODB_URI || 'mongodb://localhost:27017/sophnex_academy';
 
 // Connect to MongoDB
 export async function connectToDatabase() {

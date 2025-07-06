@@ -7,9 +7,13 @@
 	let error = $state('');
 
 	onMount(async () => {
+		// Paystack will send the reference as a URL parameter
 		const reference = $page.url.searchParams.get('reference');
+		const trxref = $page.url.searchParams.get('trxref'); // Alternative parameter Paystack might use
 
-		if (!reference) {
+		const paymentReference = reference || trxref;
+
+		if (!paymentReference) {
 			error = 'No payment reference found. Please try registering again.';
 			loading = false;
 			return;
@@ -22,7 +26,7 @@
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify({ reference })
+				body: JSON.stringify({ reference: paymentReference })
 			});
 
 			const result = await response.json();

@@ -232,7 +232,7 @@
 				<div class="grid grid-cols-2 gap-6">
 					<div class="text-center">
 						<div class="mb-2 text-3xl font-bold text-blue-600">2</div>
-						<div class="text-gray-600">Courses Available</div>
+						<div class="text-gray-600">Pre-Launch Courses Available</div>
 					</div>
 					<div class="text-center">
 						<div class="mb-2 text-3xl font-bold text-blue-600">5K</div>

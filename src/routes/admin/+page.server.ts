@@ -1,7 +1,17 @@
 import type { PageServerLoad } from './$types';
-import { getAllUsers } from '$lib/database';
+import { getAllUsers, getUserByEmail } from '$lib/database';
+import { redirect } from '@sveltejs/kit';
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({ url, cookies }) => {
+    // Check if user is authenticated
+    const sessionId = cookies.get('admin_session');
+    const isAuthenticated = sessionId === 'authenticated_admin_dandyernest';
+
+    // If not authenticated, redirect to login
+    if (!isAuthenticated) {
+        throw redirect(302, '/admin/login');
+    }
+
     try {
         const users = await getAllUsers();
         return {
