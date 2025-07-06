@@ -18,8 +18,8 @@ export async function connectToDatabase() {
     try {
         client = new MongoClient(MONGODB_URI);
         await client.connect();
-        db = client.db();
-        console.log('Connected to MongoDB');
+        db = client.db('sophnex_academy');
+        console.log('Connected to MongoDB database: sophnex_academy');
         return { client, db };
     } catch (error) {
         console.error('Failed to connect to MongoDB:', error);
