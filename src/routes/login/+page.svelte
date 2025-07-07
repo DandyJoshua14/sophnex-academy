@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
+	import SEO from '$lib/components/SEO.svelte';
+
 	let { form } = $props<{ form: any }>();
 
 	let formData = $state({
@@ -7,38 +10,41 @@
 	});
 
 	let showPaymentResume = $state(false);
-	let paymentEmail = $state('');
+	let pendingEmail = $state('');
 
-	// Show payment resume if user has pending status
+	// Check if we should show payment resume section
 	$effect(() => {
 		if (form?.userStatus === 'pending' && form?.userEmail) {
 			showPaymentResume = true;
-			paymentEmail = form.userEmail;
+			pendingEmail = form.userEmail;
 		}
 	});
 
-	function togglePaymentResume() {
-		showPaymentResume = !showPaymentResume;
+	function handleSubmit() {
+		// Reset payment resume state on new login attempt
+		showPaymentResume = false;
+		pendingEmail = '';
 	}
 </script>
 
-<svelte:head>
-	<title>Student Login - SophNex Academy</title>
-	<meta name="description" content="Login to access your course dashboard" />
-</svelte:head>
+<SEO
+	title="Login to Your Account - SophNex Academy"
+	description="Login to your SophNex Academy account to access your programming courses. Continue your learning journey with Python and JavaScript programming."
+	keywords="login SophNex Academy, student login, course access, programming course login, Python course login, JavaScript course login"
+	url="/login"
+	type="website"
+/>
 
 <div
-	class="flex min-h-screen flex-col justify-center bg-gradient-to-br from-[#FFFFFF] via-[#F8F9FF] to-[#E8ECFF] py-12 sm:px-6 lg:px-8"
+	class="min-h-screen bg-gradient-to-br from-[#FFFFFF] via-[#F8F9FF] to-[#E8ECFF] px-4 py-12 sm:px-6 lg:px-8"
 >
-	<div class="sm:mx-auto sm:w-full sm:max-w-md">
-		<h2 class="mt-6 text-center text-3xl font-extrabold text-[#10112A]">Student Login</h2>
-		<p class="mt-2 text-center text-sm text-[#5254A3]">
-			Access your course dashboard and learning materials
-		</p>
-	</div>
+	<div class="mx-auto max-w-md">
+		<div class="mb-8 text-center">
+			<h1 class="mb-2 text-3xl font-bold text-[#10112A]">Welcome Back</h1>
+			<p class="text-[#5254A3]">Sign in to access your courses</p>
+		</div>
 
-	<div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-		<div class="bg-white px-4 py-8 shadow-xl sm:rounded-lg sm:px-10">
+		<div class="rounded-lg bg-white p-8 shadow-xl">
 			{#if form?.message}
 				<div
 					class="mb-6 rounded-md p-4 {form.success
@@ -49,116 +55,90 @@
 				</div>
 			{/if}
 
-			<form method="POST" class="space-y-6">
+			<form method="POST" use:enhance={handleSubmit} class="space-y-6">
 				<div>
-					<label for="email" class="block text-sm font-medium text-[#10112A]">
-						Email address
+					<label for="email" class="mb-2 block text-sm font-medium text-[#10112A]">
+						Email Address
 					</label>
-					<div class="mt-1">
-						<input
-							id="email"
-							name="email"
-							type="email"
-							bind:value={formData.email}
-							required
-							class="block w-full appearance-none rounded-md border border-[#3469B2]/20 px-3 py-2 placeholder-[#5254A3] shadow-sm focus:border-[#3469B2] focus:ring-[#3469B2] focus:outline-none sm:text-sm"
-							placeholder="Enter your registered email"
-						/>
-					</div>
+					<input
+						type="email"
+						id="email"
+						name="email"
+						bind:value={formData.email}
+						required
+						class="block w-full rounded-md border border-[#3469B2]/20 px-3 py-2 text-[#10112A] placeholder-[#5254A3] shadow-sm focus:border-[#3469B2] focus:ring-[#3469B2] focus:outline-none"
+						placeholder="Enter your email address"
+					/>
 				</div>
 
 				<div>
-					<label for="password" class="block text-sm font-medium text-[#10112A]"> Password </label>
-					<div class="mt-1">
-						<input
-							id="password"
-							name="password"
-							type="password"
-							bind:value={formData.password}
-							required
-							class="block w-full appearance-none rounded-md border border-[#3469B2]/20 px-3 py-2 placeholder-[#5254A3] shadow-sm focus:border-[#3469B2] focus:ring-[#3469B2] focus:outline-none sm:text-sm"
-							placeholder="Enter your password"
-						/>
-					</div>
+					<label for="password" class="mb-2 block text-sm font-medium text-[#10112A]">
+						Password
+					</label>
+					<input
+						type="password"
+						id="password"
+						name="password"
+						bind:value={formData.password}
+						required
+						class="block w-full rounded-md border border-[#3469B2]/20 px-3 py-2 text-[#10112A] placeholder-[#5254A3] shadow-sm focus:border-[#3469B2] focus:ring-[#3469B2] focus:outline-none"
+						placeholder="Enter your password"
+					/>
 				</div>
 
-				<div>
-					<button
-						type="submit"
-						class="flex w-full justify-center rounded-md border border-transparent bg-gradient-to-r from-[#3469B2] to-[#00C2A8] px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:from-[#00C2A8] hover:to-[#3469B2] focus:ring-2 focus:ring-[#3469B2] focus:ring-offset-2 focus:outline-none"
-					>
-						Sign in
-					</button>
-				</div>
+				<button
+					type="submit"
+					class="w-full rounded-md bg-gradient-to-r from-[#FF5E5E] to-[#3469B2] px-4 py-3 text-sm font-medium text-white shadow-sm transition-all hover:from-[#3469B2] hover:to-[#FF5E5E] focus:ring-2 focus:ring-[#FF5E5E] focus:ring-offset-2 focus:outline-none"
+				>
+					Sign In
+				</button>
 			</form>
 
-			<div class="mt-6">
-				<div class="relative">
-					<div class="absolute inset-0 flex items-center">
-						<div class="w-full border-t border-[#3469B2]/20" />
-					</div>
-					<div class="relative flex justify-center text-sm">
-						<span class="bg-white px-2 text-[#5254A3]">New to SophNex Academy?</span>
-					</div>
-				</div>
-
-				<div class="mt-6 text-center">
-					<a
-						href="/register"
-						class="font-medium text-[#3469B2] transition-colors hover:text-[#00C2A8]"
-					>
-						Register for a course
-					</a>
-				</div>
-			</div>
-
-			<!-- Payment Resume Section - Only show for pending users -->
-			{#if form?.userStatus === 'pending'}
-				<div class="mt-8">
-					<div class="relative">
-						<div class="absolute inset-0 flex items-center">
-							<div class="w-full border-t border-[#3469B2]/20" />
-						</div>
-						<div class="relative flex justify-center text-sm">
-							<span class="bg-white px-2 text-[#5254A3]">Complete your payment</span>
-						</div>
-					</div>
-
-					<div class="mt-4 rounded-lg border border-[#3469B2]/20 bg-[#F8F9FF] p-4">
-						<h3 class="mb-2 text-sm font-medium text-[#10112A]">Resume Payment</h3>
-						<p class="mb-4 text-xs text-[#5254A3]">
-							Your account is pending verification. Complete your payment to access your course.
+			<!-- Payment Resume Section -->
+			{#if showPaymentResume}
+				<div class="mt-6 border-t border-[#3469B2]/20 pt-6">
+					<div class="rounded-md border border-[#3469B2]/20 bg-[#F8F9FF] p-4">
+						<h3 class="mb-2 text-sm font-medium text-[#10112A]">Complete Your Payment</h3>
+						<p class="mb-4 text-sm text-[#5254A3]">
+							Your account is pending payment verification. Click below to resume your payment
+							process.
 						</p>
-
 						<form method="POST" action="/resume-payment" class="space-y-4">
+							<input type="hidden" name="email" value={pendingEmail} />
 							<div>
-								<label for="payment-email" class="block text-xs font-medium text-[#10112A]"
-									>Email address</label
+								<label for="course" class="mb-2 block text-sm font-medium text-[#10112A]">
+									Select Course
+								</label>
+								<select
+									id="course"
+									name="course"
+									required
+									class="block w-full rounded-md border border-[#3469B2]/20 px-3 py-2 text-[#10112A] shadow-sm focus:border-[#3469B2] focus:ring-[#3469B2] focus:outline-none"
 								>
-								<div class="mt-1">
-									<input
-										id="payment-email"
-										name="email"
-										type="email"
-										bind:value={paymentEmail}
-										required
-										readonly
-										class="block w-full appearance-none rounded-md border border-[#3469B2]/20 bg-[#F8F9FF] px-3 py-2 text-sm placeholder-[#5254A3] shadow-sm focus:border-[#3469B2] focus:ring-[#3469B2] focus:outline-none"
-										placeholder="Enter your registration email"
-									/>
-								</div>
+									<option value="">Choose a course</option>
+									<option value="python">Introduction to Python - 5,000 NGN</option>
+									<option value="javascript">Introduction to JavaScript - 5,000 NGN</option>
+								</select>
 							</div>
-
 							<button
 								type="submit"
-								class="w-full rounded-md bg-gradient-to-r from-[#FF5E5E] to-[#3469B2] px-3 py-2 text-sm font-medium text-white shadow-sm transition-all hover:from-[#3469B2] hover:to-[#FF5E5E] focus:ring-2 focus:ring-[#FF5E5E] focus:ring-offset-2 focus:outline-none"
+								class="w-full rounded-md bg-gradient-to-r from-[#00C2A8] to-[#3469B2] px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:from-[#3469B2] hover:to-[#00C2A8] focus:ring-2 focus:ring-[#00C2A8] focus:ring-offset-2 focus:outline-none"
 							>
-								Continue Payment
+								Resume Payment
 							</button>
 						</form>
 					</div>
 				</div>
 			{/if}
+
+			<div class="mt-6 text-center">
+				<p class="text-sm text-[#5254A3]">
+					Don't have an account?
+					<a href="/register" class="font-medium text-[#3469B2] hover:text-[#00C2A8]"
+						>Register here</a
+					>
+				</p>
+			</div>
 		</div>
 	</div>
 </div>

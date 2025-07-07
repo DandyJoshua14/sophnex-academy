@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import SEO from '$lib/components/SEO.svelte';
 
 	let isMenuOpen = $state(false);
 
@@ -37,19 +38,19 @@
 	}
 </script>
 
-<svelte:head>
-	<title>SophNex Academy - Learn to Code</title>
-	<meta
-		name="description"
-		content="Join SophNex Academy for comprehensive programming courses. Learn Python and JavaScript from industry experts."
-	/>
-</svelte:head>
+<SEO
+	title="SophNex Academy - Learn Python & JavaScript Programming in Nigeria"
+	description="Join SophNex Academy for comprehensive programming courses in Nigeria. Learn Python and JavaScript from industry experts with hands-on projects and real-world applications. Start your coding journey today!"
+	keywords="programming courses Nigeria, Python programming Nigeria, JavaScript programming Nigeria, coding bootcamp Nigeria, web development Nigeria, software development Nigeria, learn to code Nigeria, programming education Nigeria, coding school Nigeria"
+	url="/"
+	type="website"
+/>
 
 <!-- Navigation -->
 <nav
-	class="fixed top-0 z-50 w-full border-b border-[#3469B2]/20 bg-[#10112A]/90 shadow-lg backdrop-blur-md"
+	class="fixed top-4 right-4 left-4 z-50 mx-auto max-w-7xl rounded-2xl border border-white/20 bg-white/5 shadow-2xl backdrop-blur-2xl"
 >
-	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+	<div class="px-4 sm:px-6 lg:px-8">
 		<div class="flex h-16 justify-between">
 			<div class="flex items-center">
 				<div class="flex-shrink-0">
@@ -60,22 +61,27 @@
 			<div class="hidden items-center space-x-8 md:flex">
 				<a
 					href="#home"
-					class="rounded-md px-3 py-2 text-sm font-medium text-[#FFFFFF] transition-colors hover:text-[#00C2A8]"
+					class="rounded-md px-3 py-2 text-sm font-medium text-[#10112A] transition-colors hover:text-[#00C2A8]"
 					>Home</a
 				>
 				<a
 					href="#courses"
-					class="rounded-md px-3 py-2 text-sm font-medium text-[#FFFFFF] transition-colors hover:text-[#00C2A8]"
+					class="rounded-md px-3 py-2 text-sm font-medium text-[#10112A] transition-colors hover:text-[#00C2A8]"
 					>Courses</a
 				>
 				<a
 					href="#about"
-					class="rounded-md px-3 py-2 text-sm font-medium text-[#FFFFFF] transition-colors hover:text-[#00C2A8]"
+					class="rounded-md px-3 py-2 text-sm font-medium text-[#10112A] transition-colors hover:text-[#00C2A8]"
 					>About</a
 				>
 				<a
+					href="/support"
+					class="rounded-md px-3 py-2 text-sm font-medium text-[#10112A] transition-colors hover:text-[#00C2A8]"
+					>Support</a
+				>
+				<a
 					href="/login"
-					class="rounded-md px-3 py-2 text-sm font-medium text-[#FFFFFF] transition-colors hover:text-[#00C2A8]"
+					class="rounded-md px-3 py-2 text-sm font-medium text-[#10112A] transition-colors hover:text-[#00C2A8]"
 					>Login</a
 				>
 				<a
@@ -89,7 +95,7 @@
 			<div class="flex items-center md:hidden">
 				<button
 					on:click={toggleMenu}
-					class="text-[#FFFFFF] transition-colors hover:text-[#00C2A8] focus:text-[#00C2A8] focus:outline-none"
+					class="text-[#10112A] transition-colors hover:text-[#00C2A8] focus:text-[#00C2A8] focus:outline-none"
 				>
 					<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path
@@ -108,26 +114,31 @@
 	{#if isMenuOpen}
 		<div class="md:hidden">
 			<div
-				class="space-y-1 border-t border-[#3469B2]/30 bg-[#10112A]/95 px-2 pt-2 pb-3 backdrop-blur-md sm:px-3"
+				class="space-y-1 rounded-b-2xl border-t border-white/30 bg-white/10 px-2 pt-2 pb-3 backdrop-blur-2xl sm:px-3"
 			>
 				<a
 					href="#home"
-					class="block rounded-md px-3 py-2 text-base font-medium text-[#FFFFFF] transition-colors hover:text-[#00C2A8]"
+					class="block rounded-md px-3 py-2 text-base font-medium text-[#10112A] transition-colors hover:text-[#00C2A8]"
 					>Home</a
 				>
 				<a
 					href="#courses"
-					class="block rounded-md px-3 py-2 text-base font-medium text-[#FFFFFF] transition-colors hover:text-[#00C2A8]"
+					class="block rounded-md px-3 py-2 text-base font-medium text-[#10112A] transition-colors hover:text-[#00C2A8]"
 					>Courses</a
 				>
 				<a
 					href="#about"
-					class="block rounded-md px-3 py-2 text-base font-medium text-[#FFFFFF] transition-colors hover:text-[#00C2A8]"
+					class="block rounded-md px-3 py-2 text-base font-medium text-[#10112A] transition-colors hover:text-[#00C2A8]"
 					>About</a
 				>
 				<a
+					href="/support"
+					class="block rounded-md px-3 py-2 text-base font-medium text-[#10112A] transition-colors hover:text-[#00C2A8]"
+					>Support</a
+				>
+				<a
 					href="/login"
-					class="block rounded-md px-3 py-2 text-base font-medium text-[#FFFFFF] transition-colors hover:text-[#00C2A8]"
+					class="block rounded-md px-3 py-2 text-base font-medium text-[#10112A] transition-colors hover:text-[#00C2A8]"
 					>Login</a
 				>
 				<a
@@ -141,7 +152,7 @@
 </nav>
 
 <!-- Hero Section -->
-<section id="home" class="bg-gradient-to-br from-[#FFFFFF] via-[#F8F9FF] to-[#E8ECFF] pt-16">
+<section id="home" class="bg-gradient-to-br from-[#FFFFFF] via-[#F8F9FF] to-[#E8ECFF] pt-32">
 	<div class="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
 		<div class="text-center">
 			<h1 class="mb-6 text-4xl font-bold text-[#10112A] md:text-6xl">

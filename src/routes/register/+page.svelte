@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import SEO from '$lib/components/SEO.svelte';
 
 	let { form } = $props<{ form: any }>();
 
@@ -38,10 +39,13 @@
 	});
 </script>
 
-<svelte:head>
-	<title>Register - SophNex Academy</title>
-	<meta name="description" content="Register for our pre-launch courses at SophNex Academy" />
-</svelte:head>
+<SEO
+	title="Register for Programming Courses - SophNex Academy"
+	description="Register for our pre-launch Python and JavaScript programming courses at SophNex Academy. Start your coding journey with expert-led instruction and hands-on projects."
+	keywords="register programming course, Python course registration, JavaScript course registration, coding bootcamp registration, programming education Nigeria"
+	url="/register"
+	type="website"
+/>
 
 <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 px-4 py-12 sm:px-6 lg:px-8">
 	<div class="mx-auto max-w-md">
@@ -198,12 +202,11 @@
 			{/if}
 
 			<div class="mt-6 text-center">
-				<p class="text-sm text-gray-600">By registering, you agree to our terms and conditions</p>
+				<p class="text-sm text-gray-600">
+					Already have an account?
+					<a href="/login" class="font-medium text-blue-600 hover:text-blue-500">Sign in here</a>
+				</p>
 			</div>
-		</div>
-
-		<div class="mt-8 text-center">
-			<a href="/" class="font-medium text-blue-600 hover:text-blue-800"> ← Back to Home </a>
 		</div>
 	</div>
 </div>
