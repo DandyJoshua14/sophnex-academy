@@ -9,9 +9,14 @@
 	let name = $state(user?.name || '');
 	let isSubmitting = $state(false);
 
-	// Handle form submission with loading state
-	function handleSubmit() {
-		isSubmitting = true;
+	// Handle form submission with loading state and update name after success
+	function handleSubmit({ result }: { result: any }) {
+		isSubmitting = false;
+		if (result?.success && result?.message && result?.form) {
+			if (result.form.name) {
+				name = result.form.name;
+			}
+		}
 	}
 </script>
 
@@ -24,14 +29,21 @@
 	<!-- Header -->
 	<header class="border-b border-[#3469B2]/20 bg-white/80 backdrop-blur-md">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="flex items-center justify-between py-4">
-				<div class="flex items-center space-x-4">
-					<a href="/dashboard" class="text-[#3469B2] transition-colors hover:text-[#00C2A8]">
+			<div
+				class="flex flex-col items-center justify-between gap-2 py-4 text-center sm:flex-row sm:items-center sm:gap-0 sm:text-left"
+			>
+				<div
+					class="flex w-full flex-col items-center space-y-2 sm:w-auto sm:flex-row sm:space-y-0 sm:space-x-4"
+				>
+					<a
+						href="/dashboard"
+						class="w-full text-[#3469B2] transition-colors hover:text-[#00C2A8] sm:w-auto"
+					>
 						← Back to Dashboard
 					</a>
-					<h1 class="text-2xl font-bold text-[#10112A]">Profile Settings</h1>
+					<h1 class="w-full text-2xl font-bold text-[#10112A] sm:w-auto">Profile Settings</h1>
 				</div>
-				<div class="text-sm text-[#5254A3]">
+				<div class="mt-2 w-full text-sm text-[#5254A3] sm:mt-0 sm:w-auto">
 					Welcome, {user?.name}
 				</div>
 			</div>
@@ -69,7 +81,24 @@
 					</div>
 				{/if}
 
-				<form method="POST" action="?/updateName" use:enhance={handleSubmit} class="space-y-6">
+				<form
+					method="POST"
+					action="?/updateName"
+					use:enhance={(formEl) => {
+						isSubmitting = true;
+						return async ({ result }) => {
+							isSubmitting = false;
+
+							if (
+								result?.type === 'success' &&
+								result?.data?.message == 'Name updated successfully!'
+							) {
+								window.location.reload();
+							}
+						};
+					}}
+					class="space-y-6"
+				>
 					<div>
 						<label for="name" class="mb-2 block text-sm font-medium text-[#10112A]">
 							Full Name
@@ -116,10 +145,10 @@
 						</a>
 						<button
 							type="submit"
-							disabled={isSubmitting || !name.trim() || name.trim().length < 2}
+							disabled={!name.trim() || name.trim().length < 2 || isSubmitting}
 							class="rounded-md bg-gradient-to-r from-[#FF5E5E] to-[#3469B2] px-6 py-3 text-sm font-medium text-white transition-all hover:from-[#3469B2] hover:to-[#FF5E5E] focus:ring-2 focus:ring-[#FF5E5E] focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
 						>
-							{isSubmitting ? 'Updating...' : 'Update Name'}
+							Update Name
 						</button>
 					</div>
 				</form>

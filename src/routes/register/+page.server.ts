@@ -17,9 +17,16 @@ export const actions: Actions = {
 
             // Basic validation
             if (!name || !email || !phone || !password || !confirmPassword || !course) {
+                let missingFields = [];
+                if (!name) missingFields.push('Full Name');
+                if (!email) missingFields.push('Email');
+                if (!phone) missingFields.push('Phone');
+                if (!password) missingFields.push('Password');
+                if (!confirmPassword) missingFields.push('Confirm Password');
+                if (!course) missingFields.push('Course');
                 return {
                     success: false,
-                    message: 'All fields are required'
+                    message: `The following fields are required: ${missingFields.join(', ')}`
                 };
             }
 

@@ -87,7 +87,7 @@
 				<form method="POST" class="space-y-6">
 					<div>
 						<label for="name" class="mb-2 block text-sm font-medium text-gray-700">
-							Full Name *
+							Full Name <span class="text-red-500">*</span>
 						</label>
 						<input
 							type="text"
@@ -95,6 +95,7 @@
 							name="name"
 							bind:value={formData.name}
 							required
+							minlength="2"
 							class="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none"
 							placeholder="Enter your full name"
 						/>

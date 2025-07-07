@@ -1,6 +1,7 @@
 import type { Actions, PageServerLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
 import { getUserById, connectToDatabase } from '$lib/database';
+import { ObjectId } from 'mongodb';
 
 export const load: PageServerLoad = async ({ cookies }) => {
     const sessionId = cookies.get('user_session');
@@ -14,6 +15,18 @@ export const load: PageServerLoad = async ({ cookies }) => {
 
         if (!user) {
             throw redirect(302, '/login');
+        }
+
+        // If user.name is missing, set it to the name from the session (registration)
+        if (!user.name && session.name) {
+            user.name = session.name;
+            // Optionally, update the database as well
+            const { db } = await connectToDatabase();
+            const usersCollection = db.collection('users');
+            await usersCollection.updateOne(
+                { _id: new ObjectId(session.userId) },
+                { $set: { name: session.name, updatedAt: new Date() } }
+            );
         }
 
         return {
@@ -56,7 +69,7 @@ export const actions: Actions = {
 
             // Update user's name
             const result = await usersCollection.updateOne(
-                { _id: session.userId },
+                { _id: new ObjectId(session.userId) },
                 {
                     $set: {
                         name: newName.trim(),
