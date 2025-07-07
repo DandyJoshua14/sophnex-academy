@@ -87,12 +87,11 @@
 					use:enhance={(formEl) => {
 						isSubmitting = true;
 						return async ({ result }) => {
-							isSubmitting = false;
-
 							if (
 								result?.type === 'success' &&
 								result?.data?.message == 'Name updated successfully!'
 							) {
+								isSubmitting = false;
 								window.location.reload();
 							}
 						};
