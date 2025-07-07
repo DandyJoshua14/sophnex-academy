@@ -545,9 +545,27 @@
 		{#each pythonLessons.filter((lesson) => lesson.day === selectedDay) as lesson}
 			<div class="space-y-4">
 				<h2 class="text-2xl font-bold text-[#10112A]">Day {lesson.day}: {lesson.title}</h2>
-
+				<!-- Coming Soon Banner -->
+				<div class="mb-2 flex items-center gap-2 rounded bg-yellow-100 px-4 py-2 text-yellow-800">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-5 w-5 flex-shrink-0"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+					>
+						<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="#FEF3C7" />
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M12 8v4m0 4h.01"
+						/>
+					</svg>
+					<span class="font-medium">Coming soon</span>
+				</div>
 				<!-- Video Player -->
-				<div class="aspect-video w-full overflow-hidden rounded-lg">
+				<!-- <div class="aspect-video w-full overflow-hidden rounded-lg">
 					<iframe
 						width="100%"
 						height="100%"
@@ -557,13 +575,13 @@
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowfullscreen
 					></iframe>
-				</div>
+				</div> -->
 
 				<!-- Transcript -->
-				<div class="rounded-lg bg-[#F8F9FF] p-4">
+				<!-- <div class="rounded-lg bg-[#F8F9FF] p-4">
 					<h3 class="mb-2 font-semibold text-[#10112A]">Lesson Transcript:</h3>
 					<div class="whitespace-pre-line text-[#5254A3]">{lesson.transcript}</div>
-				</div>
+				</div> -->
 			</div>
 		{/each}
 	</div>
