@@ -34,7 +34,7 @@ export interface User {
     email: string;
     phone: string;
     password: string;
-    course: 'python' | 'javascript';
+    course: 'python' | 'javascript' | 'htmlcss';
     status: 'pending' | 'verified' | 'cancelled';
     paymentStatus: 'pending' | 'paid' | 'failed';
     paymentReference?: string;

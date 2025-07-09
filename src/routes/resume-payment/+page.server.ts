@@ -39,7 +39,7 @@ export const actions: Actions = {
                             { _id: user._id },
                             {
                                 $set: {
-                                    course: course as 'python' | 'javascript',
+                                    course: course as 'python' | 'javascript'|'htmlcss',
                                     updatedAt: new Date()
                                 }
                             }
