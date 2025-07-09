@@ -8,7 +8,7 @@
 		{
 			id: 'python',
 			name: 'Introduction to Python',
-			price: '5,000 NGN',
+			price: '10,000 NGN',
 			description: 'Learn the fundamentals of Python programming language',
 			features: [
 				'Basic syntax and data types',
@@ -21,7 +21,7 @@
 		{
 			id: 'javascript',
 			name: 'Introduction to JavaScript',
-			price: '5,000 NGN',
+			price: '10,000 NGN',
 			description: 'Master the basics of JavaScript for web development',
 			features: [
 				'Variables and data types',
@@ -34,7 +34,7 @@
 		{
 			id: 'htmlcss',
 			name: 'Introduction to HTML & CSS',
-			price: '5,000 NGN',
+			price: '10,000 NGN',
 			description: 'Build and style beautiful web pages with HTML & CSS',
 			features: [
 				'HTML document structure',
@@ -282,7 +282,7 @@
 						<div class="text-[#FFFFFF]">Courses Available</div>
 					</div>
 					<div class="text-center">
-						<div class="mb-2 text-3xl font-bold text-[#00C2A8]">5K</div>
+						<div class="mb-2 text-3xl font-bold text-[#00C2A8]">10K</div>
 						<div class="text-[#FFFFFF]">NGN per Course</div>
 					</div>
 				</div>
@@ -361,7 +361,7 @@
 			href="/register"
 			class="transform rounded-lg bg-[#FFFFFF] px-8 py-3 text-lg font-medium text-[#10112A] shadow-lg transition-all hover:scale-105 hover:bg-[#F8F9FF] hover:shadow-xl"
 		>
-			Register Now - Only 5,000 NGN
+			Register Now - Only 10,000 NGN
 		</a>
 	</div>
 </section>

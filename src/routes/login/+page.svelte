@@ -116,9 +116,9 @@
 									class="block w-full rounded-md border border-[#3469B2]/20 px-3 py-2 text-[#10112A] shadow-sm focus:border-[#3469B2] focus:ring-[#3469B2] focus:outline-none"
 								>
 									<option value="">Choose a course</option>
-									<option value="python">Introduction to Python - 5,000 NGN</option>
-									<option value="javascript">Introduction to JavaScript - 5,000 NGN</option>
-									<option value="htmlcss">Introduction to HTML & CSS - 5,000 NGN</option>
+									<option value="python">Introduction to Python - 10,000 NGN</option>
+									<option value="javascript">Introduction to JavaScript - 10,000 NGN</option>
+									<option value="htmlcss">Introduction to HTML & CSS - 10,000 NGN</option>
 								</select>
 							</div>
 							<button
