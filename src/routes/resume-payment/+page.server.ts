@@ -44,7 +44,7 @@ export const actions: Actions = {
                                 }
                             }
                         );
-                        user.course = course as 'python' | 'javascript';
+                        user.course = course as 'python' | 'javascript'|'htmlcss';
                     }
                 } else if (user.status === 'verified') {
                     return {
@@ -57,7 +57,7 @@ export const actions: Actions = {
                         { _id: user._id },
                         {
                             $set: {
-                                course: course as 'python' | 'javascript',
+                                course: course as 'python' | 'javascript'|'htmlcss',
                                 status: 'pending',
                                 paymentStatus: 'pending',
                                 updatedAt: new Date()
@@ -65,7 +65,7 @@ export const actions: Actions = {
                         }
                     );
                     user.status = 'pending';
-                    user.course = course as 'python' | 'javascript';
+                    user.course = course as 'python' | 'javascript' | 'htmlcss';
                 }
             } else {
                 // Create new user with minimal information
@@ -74,7 +74,7 @@ export const actions: Actions = {
                     email: email.toLowerCase(),
                     phone: '', // Will be updated later if needed
                     password: '', // Will be set later if needed
-                    course: course as 'python' | 'javascript'
+                    course: course as 'python' | 'javascript'|'htmlcss'
                 });
                 user = await getUserByEmail(email);
             }
