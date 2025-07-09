@@ -16,7 +16,7 @@ export const actions: Actions = {
         }
 
         // Validate course selection
-        if (course !== 'python' && course !== 'javascript') {
+        if (course !== 'python' && course !== 'javascript' && course !== 'htmlcss') {
             return {
                 success: false,
                 message: 'Please select a valid course'
