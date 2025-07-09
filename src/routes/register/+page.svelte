@@ -25,6 +25,12 @@
 			name: 'Introduction to JavaScript',
 			price: '5,000 NGN',
 			description: 'Master the basics of JavaScript for web development'
+		},
+		{
+			id: 'htmlcss',
+			name: 'Introduction to HTML & CSS',
+			price: '5,000 NGN',
+			description: 'Build and style beautiful web pages with HTML & CSS'
 		}
 	];
 

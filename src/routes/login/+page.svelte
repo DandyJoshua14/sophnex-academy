@@ -118,6 +118,7 @@
 									<option value="">Choose a course</option>
 									<option value="python">Introduction to Python - 5,000 NGN</option>
 									<option value="javascript">Introduction to JavaScript - 5,000 NGN</option>
+									<option value="htmlcss">Introduction to HTML & CSS - 5,000 NGN</option>
 								</select>
 							</div>
 							<button

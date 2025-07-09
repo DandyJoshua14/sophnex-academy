@@ -55,7 +55,7 @@ export const actions: Actions = {
             }
 
             // Course validation
-            if (!['python', 'javascript'].includes(course)) {
+            if (!['python', 'javascript', 'htmlcss'].includes(course)) {
                 return {
                     success: false,
                     message: 'Please select a valid course'
@@ -80,7 +80,7 @@ export const actions: Actions = {
                 email,
                 phone,
                 password: hashedPassword,
-                course: course as 'python' | 'javascript'
+                course: course as 'python' | 'javascript' | 'htmlcss'
             });
 
             // Get course price

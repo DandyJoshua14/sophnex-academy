@@ -30,6 +30,19 @@
 				'Event handling',
 				'Basic web applications'
 			]
+		},
+		{
+			id: 'htmlcss',
+			name: 'Introduction to HTML & CSS',
+			price: '5,000 NGN',
+			description: 'Build and style beautiful web pages with HTML & CSS',
+			features: [
+				'HTML document structure',
+				'Headings, paragraphs, and lists',
+				'Links and images',
+				'CSS selectors and properties',
+				'Page layout and responsive design'
+			]
 		}
 	];
 
@@ -54,7 +67,9 @@
 		<div class="flex h-16 justify-between">
 			<div class="flex items-center">
 				<div class="flex-shrink-0">
-					<h1 class="text-xl font-bold text-[#3469B2]">SophNex Academy</h1>
+					<a href="/">
+						<img src="/SOPHNEX%20ACADEMY%20LOGO-09.png" alt="SophNex Academy Logo" class="h-14 w-auto" style="max-height: 56px;" />
+					</a>
 				</div>
 			</div>
 
@@ -197,7 +212,7 @@
 		<div class="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
 			{#each courses as course}
 				<div
-					class="transform overflow-hidden rounded-lg border-2 border-[#3469B2] bg-[#FFFFFF] shadow-lg transition-all hover:scale-105 hover:border-[#00C2A8] hover:shadow-xl"
+					class="transform overflow-hidden rounded-lg border-2 border-[#3469B2] bg-[#FFFFFF] shadow-lg transition-all hover:scale-105 hover:border-[#00C2A8] hover:shadow-xl {course.id === 'htmlcss' ? 'md:col-span-2' : ''}"
 				>
 					<div class="p-8">
 						<div class="mb-6 text-center">
@@ -263,7 +278,7 @@
 
 				<div class="grid grid-cols-2 gap-6">
 					<div class="text-center">
-						<div class="mb-2 text-3xl font-bold text-[#00C2A8]">2</div>
+						<div class="mb-2 text-3xl font-bold text-[#00C2A8]">3</div>
 						<div class="text-[#FFFFFF]">Courses Available</div>
 					</div>
 					<div class="text-center">

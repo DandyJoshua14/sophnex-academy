@@ -1,6 +1,7 @@
 <script lang="ts">
 	import PythonCourse from '$lib/components/PythonCourse.svelte';
 	import JavaScriptCourse from '$lib/components/JavaScriptCourse.svelte';
+	import HTMLCSSCourse from '$lib/components/HTMLCSSCourse.svelte';
 	import SEO from '$lib/components/SEO.svelte';
 
 	let { data } = $props<{ data: any }>();
@@ -29,7 +30,11 @@
 					<p class="truncate text-xs text-[#00C2A8] sm:text-sm">
 						Course: {user.course === 'python'
 							? 'Introduction to Python'
-							: 'Introduction to JavaScript'}
+							: user.course === 'javascript'
+								? 'Introduction to JavaScript'
+								: user.course === 'htmlcss'
+									? 'Introduction to HTML & CSS'
+									: 'Unknown'}
 					</p>
 				</div>
 				<div class="ml-4 flex items-center space-x-2 sm:space-x-4">
@@ -71,6 +76,8 @@
 			<PythonCourse />
 		{:else if user.course === 'javascript'}
 			<JavaScriptCourse />
+		{:else if user.course === 'htmlcss'}
+			<HTMLCSSCourse />
 		{:else}
 			<div class="py-12 text-center">
 				<p class="text-[#5254A3]">Course content not available.</p>
