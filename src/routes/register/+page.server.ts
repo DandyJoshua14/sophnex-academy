@@ -14,6 +14,7 @@ export const actions: Actions = {
             const password = formData.get('password') as string;
             const confirmPassword = formData.get('confirmPassword') as string;
             const course = formData.get('course') as string;
+            const coupon = (formData.get('coupon') as string)?.trim();
 
             // Basic validation
             if (!name || !email || !phone || !password || !confirmPassword || !course) {
@@ -84,7 +85,10 @@ export const actions: Actions = {
             });
 
             // Get course price
-            const amount = getCoursePrice(course);
+            let amount = getCoursePrice(course);
+            if (coupon && coupon.toUpperCase() === 'SOPHNEX@2025') {
+                amount = 5000;
+            }
 
             // Initialize Paystack payment (Paystack will generate its own reference)
             const callbackUrl = `${url.origin}/verify`;

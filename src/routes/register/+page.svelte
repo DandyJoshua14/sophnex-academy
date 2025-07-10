@@ -13,6 +13,20 @@
 		course: ''
 	});
 
+	let coupon = '';
+	let couponApplied = false;
+	let couponError = '';
+
+	function checkCoupon() {
+		if (coupon.trim().toUpperCase() === 'SOPHNEX@2025') {
+			couponApplied = true;
+			couponError = '';
+		} else {
+			couponApplied = false;
+			couponError = coupon ? 'Invalid coupon code' : '';
+		}
+	}
+
 	const courses = [
 		{
 			id: 'python',
@@ -186,6 +200,28 @@
 						</select>
 					</div>
 
+					<div>
+						<label for="coupon" class="mb-2 block text-sm font-medium text-gray-700">
+							Coupon Code (optional)
+						</label>
+						<div class="flex gap-2">
+							<input
+								type="text"
+								id="coupon"
+								name="coupon"
+								bind:value={coupon}
+								class="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+								placeholder="Enter coupon code"
+								on:input={checkCoupon}
+							/>
+						</div>
+						{#if couponApplied}
+							<p class="mt-1 text-green-600 text-sm font-medium">Coupon applied! 50% discount.</p>
+						{:else if couponError}
+							<p class="mt-1 text-red-600 text-sm font-medium">{couponError}</p>
+						{/if}
+					</div>
+
 					{#if formData.course}
 						<div class="rounded-md bg-blue-50 p-4">
 							<h3 class="mb-2 font-medium text-blue-900">Selected Course Details:</h3>
@@ -193,7 +229,9 @@
 								<div class="text-blue-800">
 									<p class="font-medium">{course.name}</p>
 									<p class="text-sm">{course.description}</p>
-									<p class="mt-1 text-sm font-medium">Price: {course.price}</p>
+									<p class="mt-1 text-sm font-medium">
+										Price: {couponApplied ? '5,000 NGN' : course.price}
+									</p>
 								</div>
 							{/each}
 						</div>
