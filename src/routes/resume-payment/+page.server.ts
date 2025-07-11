@@ -88,7 +88,7 @@ export const actions: Actions = {
 
             // Initialize Paystack payment
             const callbackUrl = `${process.env.PUBLIC_BASE_URL || 'http://localhost:5173'}/verify`;
-            const amount = 5000; // 5,000 NGN
+            const amount = 10000; // 10,000 NGN
 
             const result = await initializePayment(user.email, amount, callbackUrl);
 

@@ -44,6 +44,13 @@ export const courseSEO = {
         keywords: 'JavaScript programming, JavaScript course, learn JavaScript, web development, frontend development, DOM manipulation, interactive websites',
         type: 'course' as const,
         section: 'Programming Courses'
+    },
+    htmlcss: {
+        title: 'HTML & CSS Course - SophNex Academy',
+        description: 'Build and style beautiful web pages from scratch. Learn HTML document structure, CSS styling, responsive layouts, and best practices for modern web design.',
+        keywords: 'HTML course, CSS course, learn HTML, learn CSS, web design, responsive design, frontend development, website building',
+        type: 'course' as const,
+        section: 'Programming Courses'
     }
 };
 
@@ -191,7 +198,7 @@ export function generateOrganizationData(): string {
                     "name": "Introduction to Python",
                     "description": "Learn Python programming fundamentals with hands-on projects"
                 },
-                "price": "5000",
+                "price": "10000",
                 "priceCurrency": "NGN"
             },
             {
@@ -201,7 +208,17 @@ export function generateOrganizationData(): string {
                     "name": "Introduction to JavaScript",
                     "description": "Master JavaScript for web development and interactive applications"
                 },
-                "price": "5000",
+                "price": "10000",
+                "priceCurrency": "NGN"
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Course",
+                    "name": "Introduction to HTML & CSS",
+                    "description": "Build and style beautiful web pages with HTML & CSS"
+                },
+                "price": "10000",
                 "priceCurrency": "NGN"
             }
         ]
