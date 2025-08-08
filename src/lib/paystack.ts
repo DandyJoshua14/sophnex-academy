@@ -66,9 +66,9 @@ export async function verifyPayment(reference: string) {
 // Get course price
 export function getCoursePrice(course: string): number {
     const prices = {
-        python: 10000,
-        javascript: 10000,
-        htmlcss: 10000
+        python: 50000,
+        javascript: 50000,
+        htmlcss: 50000
     };
-    return prices[course as keyof typeof prices] || 10000;
+    return prices[course as keyof typeof prices] || 50000;
 } 

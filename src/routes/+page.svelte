@@ -8,7 +8,7 @@
 		{
 			id: 'python',
 			name: 'Introduction to Python',
-			price: '10,000 NGN',
+			price: '50,000 NGN',
 			description: 'Learn the fundamentals of Python programming language',
 			features: [
 				'Basic syntax and data types',
@@ -21,7 +21,7 @@
 		{
 			id: 'javascript',
 			name: 'Introduction to JavaScript',
-			price: '10,000 NGN',
+			price: '50,000 NGN',
 			description: 'Master the basics of JavaScript for web development',
 			features: [
 				'Variables and data types',
@@ -34,7 +34,7 @@
 		{
 			id: 'htmlcss',
 			name: 'Introduction to HTML & CSS',
-			price: '10,000 NGN',
+			price: '50,000 NGN',
 			description: 'Build and style beautiful web pages with HTML & CSS',
 			features: [
 				'HTML document structure',

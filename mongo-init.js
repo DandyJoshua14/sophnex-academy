@@ -172,7 +172,7 @@ db.courses.insertMany([
     {
         id: "python",
         name: "Introduction to Python",
-        price: 10000,
+        price: 50000,
         description: "Learn the fundamentals of Python programming language",
         features: [
             "Basic syntax and data types",
@@ -188,7 +188,7 @@ db.courses.insertMany([
     {
         id: "javascript",
         name: "Introduction to JavaScript",
-        price: 10000,
+        price: 50000,
         description: "Master the basics of JavaScript for web development",
         features: [
             "Variables and data types",
@@ -196,6 +196,22 @@ db.courses.insertMany([
             "DOM manipulation",
             "Event handling",
             "Basic web applications"
+        ],
+        isActive: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
+    {
+        id: "htmlcss",
+        name: "Introduction to HTML & CSS",
+        price: 50000,
+        description: "Build and style modern web pages using HTML and CSS",
+        features: [
+            "HTML elements and structure",
+            "CSS selectors and properties",
+            "Responsive design basics",
+            "Page layouts and positioning",
+            "Hands-on web page projects"
         ],
         isActive: true,
         createdAt: new Date(),

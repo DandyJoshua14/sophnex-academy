@@ -198,7 +198,7 @@ export function generateOrganizationData(): string {
                     "name": "Introduction to Python",
                     "description": "Learn Python programming fundamentals with hands-on projects"
                 },
-                "price": "10000",
+                "price": "50000",
                 "priceCurrency": "NGN"
             },
             {
@@ -208,7 +208,7 @@ export function generateOrganizationData(): string {
                     "name": "Introduction to JavaScript",
                     "description": "Master JavaScript for web development and interactive applications"
                 },
-                "price": "10000",
+                "price": "50000",
                 "priceCurrency": "NGN"
             },
             {
@@ -218,7 +218,7 @@ export function generateOrganizationData(): string {
                     "name": "Introduction to HTML & CSS",
                     "description": "Build and style beautiful web pages with HTML & CSS"
                 },
-                "price": "10000",
+                "price": "50000",
                 "priceCurrency": "NGN"
             }
         ]
