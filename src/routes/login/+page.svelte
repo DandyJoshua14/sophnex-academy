@@ -27,6 +27,8 @@
 	}
 </script>
 
+
+
 <SEO
 	title="Login to Your Account - SophNex Academy"
 	description="Login to your SophNex Academy account to access your programming courses. Continue your learning journey with Python and JavaScript programming."
@@ -34,6 +36,8 @@
 	url="/login"
 	type="website"
 />
+
+
 
 <div
 	class="min-h-screen bg-gradient-to-br from-[#FFFFFF] via-[#F8F9FF] to-[#E8ECFF] px-4 py-12 sm:px-6 lg:px-8"
