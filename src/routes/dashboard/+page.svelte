@@ -65,10 +65,7 @@
 		<div class="mb-6 sm:mb-8">
 			<h2 class="mb-2 text-xl font-bold text-[#10112A] sm:text-2xl">Your Learning Journey</h2>
 			<p class="text-sm text-[#5254A3] sm:text-base">
-				Follow along with the daily lessons and complete your assignments to master {user.course ===
-				'python'
-					? 'Python'
-					: 'JavaScript'} programming.
+				Follow along with the daily lessons and complete your assignments to master {user.course === "htmlcss" ? "HTML & CSS" : user.course.toUpperCase()} programming.
 			</p>
 		</div>
 

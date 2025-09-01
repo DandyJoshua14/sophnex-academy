@@ -5,7 +5,7 @@
 		{
 			day: 1,
 			title: 'Introduction to JavaScript',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: 'wvms1tLaqUo',
 			transcript: `Welcome to Day 1 of Introduction to JavaScript! Today we'll dive into the world of web programming with JavaScript.
 			
 			JavaScript is a versatile programming language that powers the modern web. We'll start by understanding what JavaScript is, its role in web development, and how to set up our development environment.
@@ -22,7 +22,7 @@
 		{
 			day: 2,
 			title: 'Variables and Data Types',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: '',
 			transcript: `Day 2: Variables and Data Types in JavaScript
 			
 			Today we'll explore how to store and manipulate data in JavaScript using variables and different data types.
@@ -39,7 +39,7 @@
 		{
 			day: 3,
 			title: 'Strings and String Methods',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: '',
 			transcript: `Day 3: Strings and String Methods
 			
 			Today we'll dive deep into working with text data in JavaScript through strings.
@@ -56,7 +56,7 @@
 		{
 			day: 4,
 			title: 'Arrays and Array Methods',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: '',
 			transcript: `Day 4: Arrays and Array Methods
 			
 			Today we'll learn about arrays, one of JavaScript's most important data structures.
@@ -73,7 +73,7 @@
 		{
 			day: 5,
 			title: 'Objects and Object Methods',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: '',
 			transcript: `Day 5: Objects and Object Methods
 			
 			Today we'll explore objects, JavaScript's key-value data structure.
@@ -90,7 +90,7 @@
 		{
 			day: 6,
 			title: 'Functions - Basics',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: '',
 			transcript: `Day 6: Functions - Basics
 			
 			Today we'll start learning about functions, which are reusable blocks of code in JavaScript.
@@ -107,7 +107,7 @@
 		{
 			day: 7,
 			title: 'Functions - Advanced',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: '',
 			transcript: `Day 7: Functions - Advanced
 			
 			Today we'll explore advanced function concepts in JavaScript.
@@ -124,7 +124,7 @@
 		{
 			day: 8,
 			title: 'Control Flow - If Statements',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: '',
 			transcript: `Day 8: Control Flow - If Statements
 			
 			Today we'll learn how to make decisions in our JavaScript programs using conditional statements.
@@ -141,7 +141,7 @@
 		{
 			day: 9,
 			title: 'Loops - For Loops',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: '',
 			transcript: `Day 9: Loops - For Loops
 			
 			Today we'll learn about for loops, which allow us to repeat code for each item in a sequence.
@@ -158,7 +158,7 @@
 		{
 			day: 10,
 			title: 'Loops - While and Do-While',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: '',
 			transcript: `Day 10: Loops - While and Do-While
 			
 			Today we'll explore while and do-while loops for conditional repetition.
@@ -175,7 +175,7 @@
 		{
 			day: 11,
 			title: 'Error Handling',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: '',
 			transcript: `Day 11: Error Handling
 			
 			Today we'll learn how to handle errors gracefully in our JavaScript programs.
@@ -192,7 +192,7 @@
 		{
 			day: 12,
 			title: 'DOM Basics',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: '',
 			transcript: `Day 12: DOM Basics
 			
 			Today we'll learn about the Document Object Model (DOM) and how JavaScript interacts with HTML.
@@ -209,7 +209,7 @@
 		{
 			day: 13,
 			title: 'DOM Manipulation',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: '',
 			transcript: `Day 13: DOM Manipulation
 			
 			Today we'll learn how to modify HTML elements and their content using JavaScript.
@@ -226,7 +226,7 @@
 		{
 			day: 14,
 			title: 'Event Handling',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: '',
 			transcript: `Day 14: Event Handling
 			
 			Today we'll learn how to respond to user interactions and browser events.
@@ -243,7 +243,7 @@
 		{
 			day: 15,
 			title: 'Forms and Form Validation',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: '',
 			transcript: `Day 15: Forms and Form Validation
 			
 			Today we'll learn how to work with HTML forms and validate user input.
@@ -260,7 +260,7 @@
 		{
 			day: 16,
 			title: 'Local Storage and Session Storage',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: '',
 			transcript: `Day 16: Local Storage and Session Storage
 			
 			Today we'll learn how to store data in the browser for persistence.
@@ -277,7 +277,7 @@
 		{
 			day: 17,
 			title: 'JSON and Data Handling',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: '',
 			transcript: `Day 17: JSON and Data Handling
 			
 			Today we'll learn how to work with JSON data in JavaScript.
@@ -294,7 +294,7 @@
 		{
 			day: 18,
 			title: 'Fetch API - Making HTTP Requests',
-			videoId: 'YYXdXT2l-Gg',
+			videoId: '',
 			transcript: `Day 18: Fetch API - Making HTTP Requests
 			
 			Today we'll learn how to make HTTP requests to web servers using the Fetch API.

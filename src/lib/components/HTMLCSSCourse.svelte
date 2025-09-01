@@ -332,14 +332,7 @@ Key topics:
 		
 	];
 
-	for (let i = 2; i <= 30; i++) {
-		htmlCssLessons.push({
-			day: i,
-			title: `Day ${i} Lesson Title`,
-			videoId: 'YYXdXT2l-Gg',
-			transcript: `Day ${i}: Lesson content coming soon.`
-		});
-	}
+	
 
 	function selectDay(day: number) {
 		selectedDay = day;

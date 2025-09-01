@@ -44,7 +44,6 @@ export const actions: Actions = {
                     message: 'Invalid email or password'
                 };
             }
-            console.log(user)
             // Check if user is verified
             if (user.status !== 'verified') {
                 return {
