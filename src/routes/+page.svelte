@@ -282,7 +282,7 @@
 						<div class="text-[#FFFFFF]">Courses Available</div>
 					</div>
 					<div class="text-center">
-						<div class="mb-2 text-3xl font-bold text-[#00C2A8]">10K</div>
+						<div class="mb-2 text-3xl font-bold text-[#00C2A8]">50K</div>
 						<div class="text-[#FFFFFF]">NGN per Course</div>
 					</div>
 				</div>
@@ -361,7 +361,7 @@
 			href="/register"
 			class="transform rounded-lg bg-[#FFFFFF] px-8 py-3 text-lg font-medium text-[#10112A] shadow-lg transition-all hover:scale-105 hover:bg-[#F8F9FF] hover:shadow-xl"
 		>
-			Register Now - Only 10,000 NGN
+			Register Now - Only 50,000 NGN
 		</a>
 	</div>
 </section>
