@@ -10,7 +10,7 @@
 onMount(async () => {
 		const transcripts = await getPythonTranscripts(selectedDay);
 		classes = await getFullCourse("python")
-		console.log(classes);
+		
 		globalUrl = transcripts.length > 0 ? transcripts[0].video_url : "";
 		globalTranscripts = transcripts.length > 0 ? transcripts[0].transcript : "";
 		selectDay(selectedDay)
@@ -22,7 +22,7 @@ onMount(async () => {
 	async function selectDay(day: string) {
 		selectedDay = day;
 		const transcripts = await getPythonTranscripts(day);
-		console.log(transcripts);
+		
 		globalTranscripts = transcripts.length > 0 ? transcripts[0].transcript : "";
 	}
 </script>
