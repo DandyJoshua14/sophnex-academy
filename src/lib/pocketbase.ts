@@ -64,6 +64,7 @@ export async function getFullCourse(collection: string) {
     day: record.day,
     video_url: record.video_url,
     transcript: record.transcripts,
+    title: record.title,
     type: record.type || 'video', // default to 'video' if type is not set
   }));
 }
