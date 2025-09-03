@@ -61,6 +61,8 @@ This 30-day intensive course will take you from complete beginner to confident P
 		{#if lesson.video_url}
 			<!-- Video Lesson -->
 			<div>
+		<h2 class="mb-4 text-2xl font-bold text-[#10112A]">Day {lesson.day}: {lesson.title}</h2>
+
 				<!-- Video Player -->
 				<div class="aspect-video w-full overflow-hidden rounded-lg">
 					<iframe
