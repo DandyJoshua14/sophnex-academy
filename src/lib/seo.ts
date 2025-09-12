@@ -16,13 +16,13 @@ export interface SEOConfig {
 }
 
 // Base URL for the website
-const BASE_URL = env.PUBLIC_BASE_URL || 'https://sophnex-academy.com';
+const BASE_URL = env.PUBLIC_BASE_URL || 'https://sophnexacademy.com.ng';
 
 // Default SEO configuration
 export const defaultSEO: SEOConfig = {
-    title: 'SophNex Academy - Learn Python & JavaScript Programming',
-    description: 'Join SophNex Academy for comprehensive programming courses. Learn Python and JavaScript from industry experts with hands-on projects and real-world applications.',
-    keywords: 'programming courses, Python programming, JavaScript programming, coding bootcamp, web development, software development, learn to code, programming education, Nigeria coding school',
+    title: 'SophNex Academy - Learn Python, JavaScript & HTML/CSS Programming',
+    description: 'Join SophNex Academy for comprehensive programming courses. Learn Python, JavaScript, and HTML/CSS from industry experts with hands-on projects and real-world applications. Start your coding journey today!',
+    keywords: 'programming courses, Python programming, JavaScript programming, HTML CSS course, coding bootcamp, web development, software development, learn to code, programming education, Nigeria coding school, online programming courses, tech education Nigeria',
     image: `${BASE_URL}/og-image.jpg`,
     url: BASE_URL,
     type: 'website',
@@ -85,6 +85,29 @@ export function generateMetaTags(config: SEOConfig): string {
         `<meta name="googlebot" content="index, follow">`,
         `<link rel="canonical" href="${config.url || defaultSEO.url}">`,
 
+        // Enhanced SEO meta tags
+        `<meta name="format-detection" content="telephone=no">`,
+        `<meta name="mobile-web-app-capable" content="yes">`,
+        `<meta name="apple-mobile-web-app-capable" content="yes">`,
+        `<meta name="apple-mobile-web-app-status-bar-style" content="default">`,
+        `<meta name="apple-mobile-web-app-title" content="SophNex Academy">`,
+        `<meta name="application-name" content="SophNex Academy">`,
+        `<meta name="msapplication-tooltip" content="Learn programming with SophNex Academy">`,
+        `<meta name="msapplication-starturl" content="/">`,
+        
+        // Language and region
+        `<meta name="language" content="en">`,
+        `<meta name="geo.region" content="NG">`,
+        `<meta name="geo.country" content="Nigeria">`,
+        
+        // Content rating
+        `<meta name="rating" content="general">`,
+        `<meta name="distribution" content="global">`,
+        
+        // Cache control
+        `<meta http-equiv="Cache-Control" content="public, max-age=31536000">`,
+        `<meta http-equiv="Expires" content="31536000">`,
+
         // Favicon and app icons
         `<link rel="icon" type="image/x-icon" href="/favicon.ico">`,
         `<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">`,
@@ -95,6 +118,16 @@ export function generateMetaTags(config: SEOConfig): string {
         // Theme color
         `<meta name="theme-color" content="#3469B2">`,
         `<meta name="msapplication-TileColor" content="#3469B2">`,
+        
+        // Preconnect to external domains for performance
+        `<link rel="preconnect" href="https://fonts.googleapis.com">`,
+        `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>`,
+        `<link rel="preconnect" href="https://www.google-analytics.com">`,
+        
+        // DNS prefetch for external resources
+        `<link rel="dns-prefetch" href="//fonts.googleapis.com">`,
+        `<link rel="dns-prefetch" href="//www.google-analytics.com">`,
+        `<link rel="dns-prefetch" href="//www.googletagmanager.com">`,
     ];
 
     // Add article-specific meta tags if type is article
@@ -133,10 +166,10 @@ export function generateStructuredData(config: SEOConfig): string {
             "@type": "Organization",
             "name": "SophNex Academy",
             "url": BASE_URL,
-            "logo": {
-                "@type": "ImageObject",
-                "url": `${BASE_URL}/logo.png`
-            }
+        "logo": {
+            "@type": "ImageObject",
+            "url": `${BASE_URL}/SOPHNEX%20ACADEMY%20LOGO-12.png`
+        }
         }
     };
 
@@ -173,8 +206,8 @@ export function generateOrganizationData(): string {
         "@type": "EducationalOrganization",
         "name": "SophNex Academy",
         "url": BASE_URL,
-        "logo": `${BASE_URL}/logo.png`,
-        "description": "SophNex Academy offers comprehensive programming courses in Python and JavaScript, designed to help students master coding fundamentals and build real-world projects.",
+        "logo": `${BASE_URL}/SOPHNEX%20ACADEMY%20LOGO-12.png`,
+        "description": "SophNex Academy offers comprehensive programming courses in Python, JavaScript, and HTML/CSS, designed to help students master coding fundamentals and build real-world projects.",
         "address": {
             "@type": "PostalAddress",
             "addressCountry": "NG",
